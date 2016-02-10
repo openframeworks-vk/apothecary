@@ -17,6 +17,7 @@ matrix:
           - gcc-4.9
           - g++-4.9
           - libxrandr-dev
+          - libxinerama-dev
 #    - os: osx
 #      compiler: clang
 #      env: TARGET="osx"
