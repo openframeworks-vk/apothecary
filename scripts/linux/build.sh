@@ -4,9 +4,9 @@ cd $APOTHECARY_PATH
 cd ..
 TARBALL=openFrameworksLibs_$(git rev-parse --abbrev-ref HEAD).tar.bz2
 tar cjf $TARBALL $(ls  | grep -v apothecary | grep scripts)
-openssl aes-256-cbc -K $encrypted_aa785955a938_key -iv $encrypted_aa785955a938_iv -in scripts/id_rsa.enc -out id_rsa -d
+openssl aes-256-cbc -K $encrypted_aa785955a938_key -iv $encrypted_aa785955a938_iv -in scripts/id_rsa.enc -out scripts/id_rsa -d
 cp scripts/ssh_config ~/.ssh/config
 chmod 600 scripts/id_rsa
 scp -i scripts/id_rsa $TARBALL tests@ci.openframeworks.cc:libs/$TARBALL.new
 ssh -i scripts/id_rsa tests@ci.openframeworks.cc "mv libs/$TARBALL.new libs/$TARBALL"
-rm id_rsa
+rm scripts/id_rsa
