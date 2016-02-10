@@ -21,6 +21,7 @@ matrix:
           - libx11-dev
           - libxcursor-dev
           - libxi-dev
+          - premake4
 #    - os: osx
 #      compiler: clang
 #      env: TARGET="osx"
