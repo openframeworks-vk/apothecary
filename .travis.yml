@@ -16,25 +16,25 @@ matrix:
           packages:
           - gcc-4.9
           - g++-4.9
-          - libglfw3-dev
-    - os: osx
-      compiler: clang
-      env: TARGET="osx"
-    - os: osx
-      compiler: clang
-      env: TARGET="ios"
-    - os: linux
-      sudo: false
-      env: TARGET="android" OPT="armv7"
-      cache:
-        directories:
-        - ~/android-ndk-r10e
-    - os: linux
-      sudo: false
-      env: TARGET="android" OPT="x86"
-      cache:
-        directories:
-        - ~/android-ndk-r10e
+          - libxrandr-dev
+#    - os: osx
+#      compiler: clang
+#      env: TARGET="osx"
+#    - os: osx
+#      compiler: clang
+#      env: TARGET="ios"
+#    - os: linux
+#      sudo: false
+#      env: TARGET="android" OPT="armv7"
+#      cache:
+#        directories:
+#        - ~/android-ndk-r10e
+#    - os: linux
+#      sudo: false
+#      env: TARGET="android" OPT="x86"
+#      cache:
+#        directories:
+#        - ~/android-ndk-r10e
   exclude:
     - compiler: gcc
 #install:
