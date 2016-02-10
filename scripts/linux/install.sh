@@ -1,2 +1,2 @@
 sudo apt-get update
-sudo apt-get install premake4
+sudo apt-get install -y premake4
