@@ -1,1 +1,2 @@
-sudo apt-get install libglfw3-dev
+sudo apt-get update
+sudo apt-get install premake4

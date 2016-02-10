@@ -21,7 +21,6 @@ matrix:
           - libx11-dev
           - libxcursor-dev
           - libxi-dev
-          - premake4
 #    - os: osx
 #      compiler: clang
 #      env: TARGET="osx"
@@ -42,10 +41,10 @@ matrix:
 #        - ~/android-ndk-r10e
   exclude:
     - compiler: gcc
-#install:
-#    - if [ "$TARGET" == "android" ] || [ "$TARGET" == "linux" ] || [ "$TARGET" == "osx" ]; then
-#        scripts/$TARGET/install.sh;
-#      fi
+install:
+    - if [ "$TARGET" == "android" ] || [ "$TARGET" == "linux" ] || [ "$TARGET" == "osx" ]; then
+        scripts/$TARGET/install.sh;
+      fi
 script:
     - scripts/$TARGET/build.sh $OPT
 git:
