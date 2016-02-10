@@ -2,7 +2,7 @@ APOTHECARY_PATH=$(dirname "$0")/../../apothecary
 cd $APOTHECARY_PATH
 ./apothecary update core
 cd ..
-TARBALL=openFrameworksLibs_$(git rev-parse --abbrev-ref HEAD).tar.bz2
+TARBALL=openFrameworksLibs_$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/")_linux.tar.bz2
 tar cjf $TARBALL $(ls  | grep -v apothecary | grep scripts)
 openssl aes-256-cbc -K $encrypted_aa785955a938_key -iv $encrypted_aa785955a938_iv -in scripts/id_rsa.enc -out scripts/id_rsa -d
 cp scripts/ssh_config ~/.ssh/config
