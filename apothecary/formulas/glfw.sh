@@ -9,7 +9,7 @@
 FORMULA_TYPES=( "osx" "vs" )
 
 # define the version by sha
-VER=32f38b97d544eb2fd9a568e94e37830106417b51
+VER=f1c536fe133ee1a8d7cd3ccb7944f9d5d47a1bf2
 
 # tools for git use
 GIT_URL=https://github.com/glfw/glfw.git
