@@ -49,6 +49,7 @@ function build() {
 			cd build_vs_64
 			cmake .. -G "Visual Studio 14 Win64" -Dgtest_disable_pthreads=ON -DSHADERC_SKIP_TESTS=ON -DSHADERC_ENABLE_SHARED_CRT=ON
 			vs-build "shaderc.sln" Build "Release|x64"
+			vs-build "shaderc.sln" Build "Debug|x64"
 		fi
 	else
         if [ $CROSSCOMPILING -eq 1 ]; then
@@ -81,6 +82,7 @@ function copy() {
 		elif [ $ARCH == 64 ] ; then
 			mkdir -p $1/lib/$TYPE/x64
 			cp -v build_vs_64/libshaderc/Release/shaderc_combined.lib $1/lib/$TYPE/x64/shaderc_combined.lib
+			cp -v build_vs_64/libshaderc/Debug/shaderc_combined.lib $1/lib/$TYPE/x64/shaderc_combinedd.lib
 		fi		
 	else
 		# Standard *nix style copy.
