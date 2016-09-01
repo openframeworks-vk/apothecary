@@ -6,10 +6,10 @@
 #
 # uses a CMake build system
 
-FORMULA_TYPES=( "osx" "vs" )
+FORMULA_TYPES=( "osx" "vs" "linux64" )
 
 # define the version by sha
-VER=f1c536fe133ee1a8d7cd3ccb7944f9d5d47a1bf2
+VER=2e6a110181b1aa08e0a8a43cdb6c88c4a642ab3a
 
 # tools for git use
 GIT_URL=https://github.com/glfw/glfw.git
