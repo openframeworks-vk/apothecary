@@ -63,6 +63,10 @@ function build() {
 		mkdir -p build 
 		cd build
 
+		cmake .. -Dgtest_disable_pthreads=ON -DSHADERC_SKIP_TESTS=ON -DSHADERC_ENABLE_SHARED_CRT=ON
+		cmake --build . --config Debug -- -j$PARALLEL_MAKE
+		# cmake --build . --config Release -- -j$PARALLEL_MAKE
+
 	fi
 }
 
@@ -85,11 +89,13 @@ function copy() {
 			cp -v build_vs_64/libshaderc/Debug/shaderc_combined.lib $1/lib/$TYPE/x64/shaderc_combinedd.lib
 		fi		
 	else
+		pwd
 		# Standard *nix style copy.
 		# copy headers
 		cp -Rv libshaderc/include/* $1/include
 		# copy lib
-		cp -Rv build/libshaderc/Release/shaderc_combined.a $1/lib/$TYPE/shaderc_combined.a
+		cp -Rv build/libshaderc/libshaderc_combined.a $1/lib/$TYPE/shaderc_combined.a
+		# cp -Rv build/libshaderc/libshaderc_combinedd.a $1/lib/$TYPE/shaderc_combinedd.a
 	fi
 
 	# copy license file
@@ -102,6 +108,10 @@ function copy() {
 function clean() {
 	if [ "$TYPE" == "vs" ] ; then
 		rm -f *.lib
+	elif [ "$TYPE" == "linux64" ]; then
+		#statements
+		
+		cmake --clean .
 	else
 		make clean
 	fi
