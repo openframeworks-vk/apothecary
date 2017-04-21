@@ -4,13 +4,14 @@
 # compiling GLSL shader code into SPIR-V
 # 
 # compile this with ./apothecary -a 64 update shaderc
+# compile for windows visual studio: ./apothecary -a 64 -t vs update shaderc
 #
 # uses a CMake build system
 
 FORMULA_TYPES=( "vs" "linux64")
 
-# define the version by sha
-VER=c63df792b2d535734cd0d1e6111de7ca29dcb555
+# define the shaderc version by sha
+VER=master #rev: 21e20163a29a15922f5b018d684b67e9e40b5298
 
 # tools for git use
 GIT_URL=https://github.com/google/shaderc
@@ -27,10 +28,10 @@ function download() {
 # prepare the build environment, executed inside the lib src dir
 function prepare() {
 	pushd third_party
-	# git clone https://github.com/google/googletest.git
-	git clone https://github.com/google/glslang.git
-	git clone https://github.com/KhronosGroup/SPIRV-Tools.git spirv-tools
-	git clone https://github.com/KhronosGroup/SPIRV-Headers.git spirv-tools/external/spirv-headers
+	# this will load the very latest shaderc, revisions 
+	git clone https://github.com/google/glslang.git --depth=1 #rev: 1d8efb02edc12a27ca0430f632811bb4244898aa
+	git clone https://github.com/KhronosGroup/SPIRV-Tools.git --depth=1 spirv-tools  #rev: 97366a0df0b325cd60dd4ea61648c53d605cc1d6
+	git clone https://github.com/KhronosGroup/SPIRV-Headers.git --depth=1 spirv-tools/external/spirv-headers # rev: db5cf6176137003ca4c25df96f7c0649998c3499
 	popd
 }
 
