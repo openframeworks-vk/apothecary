@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 #
 # json
 # JSON for Modern C++ http://nlohmann.github.io/json
@@ -16,8 +16,8 @@ GIT_TAG=v$VER
 function download() {
     mkdir json
     cd json
-	curl -LO https://github.com/nlohmann/json/releases/download/v$VER/json.hpp
-	curl -LO https://raw.githubusercontent.com/nlohmann/json/master/LICENSE.MIT
+	wget https://github.com/nlohmann/json/releases/download/v$VER/json.hpp
+	wget https://raw.githubusercontent.com/nlohmann/json/master/LICENSE.MIT
 }
 
 # prepare the build environment, executed inside the lib src dir
